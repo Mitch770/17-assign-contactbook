@@ -40,7 +40,18 @@ attr_writer :contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
+  def update(name_of_attribute, updated_attribute)
+    if name_of_attribute == "first name"
+      updated_attribute = @first_name
+    elsif name_of_attribute == "last name"
+      updated_attribute = @last_name
+    elsif name_of_attribute == "email"
+      updated_attribute = @email
+    elsif name_of_attribute == "note"
+        updated_attribute = note
+    else
+        puts "wrong arguments"
+    end
 
   end
 
@@ -57,7 +68,7 @@ attr_writer :contact
 
   # This method should delete all of the contacts
   def self.delete_all
-   # delete.@@contacts
+    delete.@@contacts
   end
 
   def full_name
